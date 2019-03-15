@@ -1,12 +1,30 @@
 {
     "name": "mrlaozhou/laravel-sitemap",
-    "description": "Package built by mrlaozhou/laravel-package .",
-    "homepage": "https://github.com/Mrlaozhou/laravel-package.git",
+    "description": "build sitemap",
+    "homepage": "https://github.com/Mrlaozhou/laravel-sitemap.git",
+    "keywords": ["sitemap", "laravel", "mrlaozhou"],
     "authors": [
         {
-            "name": "mrlzz",
+            "name": "Mrlaozhou",
             "email": "zgsself@163.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Mrlaozhou\\Sitemap\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mrlaozhou\\Sitemap\\LaravelExtendServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
 }
