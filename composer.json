@@ -1,0 +1,12 @@
+{
+    "name": "mrlaozhou/laravel-sitemap",
+    "description": "Package built by mrlaozhou/laravel-package .",
+    "homepage": "https://github.com/Mrlaozhou/laravel-package.git",
+    "authors": [
+        {
+            "name": "mrlzz",
+            "email": "zgsself@163.com"
+        }
+    ],
+    "require": {}
+}
