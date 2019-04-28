@@ -5,7 +5,7 @@ composer require mrlaozhou/laravel-sitemap
 php artisan sitemap:publish
 
 
-php artisan sitemap:build
+php artisan sitemap:build keywords
 ```
 
 ## Config
