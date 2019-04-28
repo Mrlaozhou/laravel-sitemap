@@ -5,7 +5,7 @@ namespace Mrlaozhou\Sitemap\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Mrlaozhou\Sitemap\HandlerContract;
-use Mrlaozhou\Sitemap\Providers\LaravelServiceProvider;
+use Mrlaozhou\Sitemap\ServiceProvider;
 
 class SiteMapPublish extends Command
 {
@@ -39,7 +39,7 @@ class SiteMapPublish extends Command
     public function handle()
     {
         $this->call('vendor:publish', [
-            '--provider' => LaravelServiceProvider::class,
+            '--provider' => ServiceProvider::class,
             '--force' => '',
             '--tag' => ['config', 'view'],
         ]);

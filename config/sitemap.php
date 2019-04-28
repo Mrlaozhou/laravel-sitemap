@@ -9,10 +9,21 @@ return [
     |
     */
 
-    'title'             =>  env('APP_NAME', 'Mrlaozhou/laravel-sitemap'),
+    'keywords'          =>  [
+        //  手机端
+        'mobile'                =>  [
+            'title'         =>  '手机端',
+            'handler'       =>  \Mrlaozhou\Sitemap\SiteMapHandler::class,
+            'filename'      =>  'mobile.html',
+            'type'          =>  'html'
+        ],
 
-    /**
-     * @var \Mrlaozhou\Sitemap\HandlerContract
-     */
-    'handler'           =>  \Mrlaozhou\Sitemap\SiteMapHandler::class
+        //  PC端
+        'computer'              =>  [
+            'title'         =>  'PC端',
+            'handler'       =>  \Mrlaozhou\Sitemap\SiteMapHandler::class,
+            'filename'      =>  'computer.html',
+            'type'          =>  'html'
+        ],
+    ]
 ];

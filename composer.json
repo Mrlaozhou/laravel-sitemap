@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mrlaozhou\\Sitemap\\Providers\\LaravelServiceProvider"
+                "Mrlaozhou\\Sitemap\\ServiceProvider"
             ],
             "aliases": {}
         }

@@ -8,37 +8,43 @@ class Sitemap
 {
 
     /**
-     * @param string $filename
-     * @param string $view
+     * @param $config
      *
-     * @return int
+     * @return bool|int
      */
-    public function store($filename = 'sitemap.html', $view = 'html')
+    public function store($config)
     {
-        return File::put( public_path($filename), $this->render($view) );
+        return File::put( public_path($config['filename']), $this->render($config,'html') );
     }
 
     /**
+     * @param $config array
      * @param string $view
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function render($view = 'html')
+    public function render($config, $view = 'html')
     {
         return view( 'sitemap::'.$view, [
-            'collection'        =>  $this->collect()
+            'collection'        =>  $this->collect($config['handler']),
+            'title'             =>  $config['title'] ?? '',
         ] );
     }
 
     /**
+     * @param $handler string
+     *
      * @return array|\Illuminate\Contracts\Support\Arrayable
      */
-    public function collect()
+    public function collect($handler)
     {
-        if( class_exists( $handler = config('sitemap.handler') ) && ( ($handler = new $handler()) instanceof HandlerContract ) ) {
+        if( class_exists( $handler ) && ( ($handlerInstance = new $handler) instanceof HandlerContract ) ) {
             //  获取数据
-            /* @var \Mrlaozhou\Extend\Collection $collection */
-            $collection           =   ( new $handler() )->handle();
+            /**
+             * @var \Mrlaozhou\Extend\Collection $collection
+             * @var \Mrlaozhou\Sitemap\HandlerContract $handlerInstance
+             */
+            $collection           =   $handlerInstance->handle();
             return $collection;
         }
         return [];

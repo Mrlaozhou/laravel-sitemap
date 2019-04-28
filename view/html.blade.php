@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ config('sitemap.title') }}</title>
+    <title>{{ $title }}</title>
     <style>
         ul,li {
             list-style: none;
